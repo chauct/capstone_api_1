@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- bs -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!-- main css -->
+    <link rel="stylesheet" href="../../assets/css/index.css">
+</head>
+
+<body>
+    <header class="header mb-5">
+
+    </header>
+
+    <section class="product">
+
+        <div class="container">
+
+            <br />
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!--Danh sách sản phẩm -->
+                <div role="tabpanel" class="tab-pane  in active" id="DanhSachSP">
+                    <div class="row">
+                        <div class="col-md-8 mb-5">
+                            <!-- BEGIN BUTTOM THÊM MỚI -->
+                            <button id="btnThemSP" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                                <i class="fa fa-plus mr-1"></i>
+                                Thêm sản phẩm
+                            </button>
+                            <!-- END BUTTON THÊM MỚI -->
+                        </div>
+
+                    </div>
+                    <div class="clear-fix"></div>
+                    <div class="tblSanPham" id="tblProduct">
+                        <!-- BEGIN TABLE SẢN PHẨM -->
+                        <table class="table table-bordered">
+                            <thead>
+                                <th>STT</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Màn hình</th>
+                                <th> Camera sau</th>
+                                <th> Camera trước</th>
+                                <th>Hình ảnh</th>
+                                <th>Mô tả</th>
+                                <th>Loại SP</th>
+                                <th>Action</th>
+                            </thead>
+                            <tbody id="tblProductList">
+
+                            </tbody>
+                        </table>
+                        <!-- END TABLE SẢN PHẨM -->
+                    </div>
+                    <br />
+                </div>
+                <!-- Kết thúc danh sách sản phẩm -->
+            </div>
+
+            <!--KetThuc Tabmenu-->
+
+            <!-- The Modal -->
+
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+
+                            <button id="btnCloseModal" type="button" class="close" data-dismiss="modal">
+                                &times;
+                            </button>
+                        </div>
+                        <form action="">
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <input id="productId" type="hidden" />
+                                <div class="form-group">
+                                    <label>Tên Sản Phẩm</label>
+                                    <input id="name" class="form-control" placeholder="Nhập vào tên sản phẩm" />
+                                    <span id="spanName" class=" text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Giá</label>
+                                    <input id="price" class="form-control" placeholder="Nhập vào giá" />
+                                    <span id="spanPrice" class=" text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Màn hình</label>
+                                    <input id="screen" class="form-control" placeholder="Nhập vào màn hình sản phẩm" />
+                                    <span id="spanScreen" class=" text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Camera trước</label>
+                                    <input id="frontCam" class="form-control" placeholder="Nhập vào Camera trước" />
+                                    <span id="spanFrontCam" class=" text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Camera sau</label>
+                                    <input id="backCam" class="form-control" placeholder="Nhập vào Camera sau" />
+                                    <span id="spanBackCam" class=" text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Loại sản phẩm: </label>
+                                    <select class="form-control" id="type">
+                                        <option>Chọn loại SP</option>
+                                        <option>iphone</option>
+                                        <option>samsung </option>
+                                    </select>
+                                    <span id="spanType" class=" text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Hình ảnh</label>
+                                    <input id="image" class="form-control" placeholder="Link hình ảnh" />
+                                    <span id="spanImage" class=" text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Mô tả: </label>
+                                    <textarea class="form-control" id="description" cols="20" rows="5"></textarea>
+                                    <span id="spanDesc" class=" text-danger"></span>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" id="btnSaveInfo" onclick="createProduct()"
+                                    class="btn btn-success">Thêm sản
+                                    phẩm</button>
+                                <button type="button" id="btnUpdate" onclick="updateProduct()" class="btn btn-info "
+                                    style="display: none;">Lưu thay đổi
+                                </button>
+                                <button type="reset" id="btnReset" class="btn btn-info " style="display: none;">Reset
+                                </button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer py-5">
+
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+
+    <script src="../models/product.js"></script>
+
+    <script src="../controllers/index.js"></script>
+</body>
+
+</html>
